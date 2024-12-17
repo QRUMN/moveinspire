@@ -1,114 +1,37 @@
-```tsx
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Sparkles, Heart, Users, Star, ArrowRight } from 'lucide-react';
-import { Container } from './layout/Container';
 
 interface HeroProps {
   onJoinClick: () => void;
 }
 
 export function Hero({ onJoinClick }: HeroProps) {
-  const navigate = useNavigate();
-
-  const handleExploreClasses = () => {
-    navigate('/classes');
-  };
-
   return (
-    <div className="pt-32 pb-16">
-      <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Main Content Box */}
-          <div className="lg:col-span-2 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 transform hover:scale-[1.02] transition-all duration-300">
-            <div className="max-w-2xl">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Transform Your Life Through Movement
+    <div className="relative bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+          <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 lg:mt-16 lg:px-8 xl:mt-28">
+            <div className="sm:text-center lg:text-left">
+              <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                <span className="block">Transform your life</span>
+                <span className="block text-primary-600">with Move Inspire</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
-                Join our supportive community of women discovering strength, confidence, and joy through dance and movement therapy.
+              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                Join our community and start your fitness journey today. Expert-led classes, supportive environment, and results that last.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button 
-                  onClick={onJoinClick}
-                  className="flex items-center justify-center bg-purple-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-700 transition group"
-                >
-                  Start Your Journey
-                  <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button 
-                  onClick={handleExploreClasses}
-                  className="flex items-center justify-center border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-50 transition"
-                >
-                  Explore Classes
-                </button>
+              <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                <div className="rounded-md shadow">
+                  <button
+                    onClick={onJoinClick}
+                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 md:py-4 md:text-lg md:px-10"
+                  >
+                    Get started
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-4">
-            {/* Community Box */}
-            <div className="bg-white rounded-xl p-6 shadow-sm transform hover:scale-[1.02] transition-all duration-300">
-              <Users className="h-8 w-8 text-purple-600 mb-4" />
-              <div className="text-2xl font-bold text-gray-900 mb-1">250+</div>
-              <div className="text-sm text-gray-600">Active Members</div>
-            </div>
-
-            {/* Classes Box */}
-            <div className="bg-white rounded-xl p-6 shadow-sm transform hover:scale-[1.02] transition-all duration-300">
-              <Sparkles className="h-8 w-8 text-purple-600 mb-4" />
-              <div className="text-2xl font-bold text-gray-900 mb-1">15+</div>
-              <div className="text-sm text-gray-600">Weekly Classes</div>
-            </div>
-
-            {/* Success Stories Box */}
-            <div className="bg-white rounded-xl p-6 shadow-sm transform hover:scale-[1.02] transition-all duration-300">
-              <Heart className="h-8 w-8 text-purple-600 mb-4" />
-              <div className="text-2xl font-bold text-gray-900 mb-1">50+</div>
-              <div className="text-sm text-gray-600">Success Stories</div>
-            </div>
-
-            {/* Rating Box */}
-            <div className="bg-white rounded-xl p-6 shadow-sm transform hover:scale-[1.02] transition-all duration-300">
-              <Star className="h-8 w-8 text-purple-600 mb-4" />
-              <div className="text-2xl font-bold text-gray-900 mb-1">4.9/5</div>
-              <div className="text-sm text-gray-600">Member Rating</div>
-            </div>
-          </div>
+          </main>
         </div>
-
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-          {[
-            {
-              title: 'Expert Instructors',
-              description: 'Learn from certified professionals with years of experience',
-              icon: Star
-            },
-            {
-              title: 'Flexible Schedule',
-              description: 'Choose from multiple class times that fit your lifestyle',
-              icon: Users
-            },
-            {
-              title: 'Supportive Community',
-              description: 'Connect with like-minded women on similar journeys',
-              icon: Heart
-            }
-          ].map((feature, index) => (
-            <div 
-              key={index}
-              className="bg-white rounded-xl p-6 shadow-sm transform hover:scale-[1.02] transition-all duration-300"
-            >
-              <feature.icon className="h-8 w-8 text-purple-600 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
-            </div>
-          ))}
-        </div>
-      </Container>
+      </div>
     </div>
   );
 }
-```
