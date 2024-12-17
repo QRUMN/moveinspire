@@ -1,0 +1,8 @@
+# Redirect domain aliases to primary domain
+https://www.moveinspire.com/* https://moveinspire.com/:splat 301!
+
+# Handle client-side routing
+/* /index.html 200
+
+# API proxy (if needed)
+/api/* https://api.moveinspire.com/:splat 200
