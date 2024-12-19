@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: 'dist',
       sourcemap: true,
-      minify: 'terser',
+      minify: 'esbuild',
       cssMinify: true,
     },
     server: {
