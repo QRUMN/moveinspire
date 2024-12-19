@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu, X, DumbellIcon } from 'lucide-react'
+import { Menu, X, DumbbellIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 interface NavbarProps {
@@ -21,7 +21,7 @@ export function Navbar({ onJoinClick }: NavbarProps) {
         <div className="flex justify-between h-20">
           <div className="flex">
             <Link to="/" className="flex-shrink-0 flex items-center space-x-2">
-              <DumbellIcon className="h-8 w-8 text-primary-600" />
+              <DumbbellIcon className="h-8 w-8 text-primary-600" />
               <span className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 text-transparent bg-clip-text">
                 Move Inspire
               </span>
