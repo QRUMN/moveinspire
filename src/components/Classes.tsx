@@ -1,87 +1,70 @@
-import React from 'react';
-import { Clock, Zap } from 'lucide-react';
-import { PageHeader } from './layout/PageHeader';
-import { Container } from './layout/Container';
+import React from 'react'
+import { Dumbbell, Users, Heart, Brain } from 'lucide-react'
 
-interface ClassesProps {
-  standalone?: boolean;
-}
+const features = [
+  {
+    name: 'Strength Training',
+    description: 'Build muscle, increase strength, and boost your metabolism with our expert-led strength training classes.',
+    icon: Dumbbell,
+  },
+  {
+    name: 'Group Fitness',
+    description: 'Join our energetic group classes for motivation, accountability, and a fun workout experience.',
+    icon: Users,
+  },
+  {
+    name: 'Cardio & HIIT',
+    description: 'Improve your endurance and burn calories with our high-intensity interval training sessions.',
+    icon: Heart,
+  },
+  {
+    name: 'Mind & Body',
+    description: 'Find balance and reduce stress with our yoga, pilates, and mindfulness classes.',
+    icon: Brain,
+  },
+]
 
-export function Classes({ standalone = false }: ClassesProps) {
-  const classes = [
-    {
-      name: 'Hip-Hop',
-      image: 'https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      schedule: ['Mon 6pm', 'Wed 6pm', 'Sat 10am'],
-      intensity: 'Medium-High',
-      description: 'Energetic cardio sessions focused on self-expression and confidence building through hip-hop dance.'
-    },
-    {
-      name: 'Stretch & Release',
-      image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-      schedule: ['Tue 7pm', 'Thu 7pm', 'Sun 9am'],
-      intensity: 'Low-Medium',
-      description: 'Mindful movement sessions combining stretching and relaxation techniques for stress relief.'
-    }
-  ];
-
-  const content = (
-    <div className="grid md:grid-cols-2 gap-12">
-      {classes.map((cls) => (
-        <div key={cls.name} className="rounded-2xl overflow-hidden shadow-lg transform hover:scale-[1.02] transition-all duration-300">
-          <div className="relative h-64">
-            <img
-              src={cls.image}
-              alt={cls.name}
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">{cls.name}</h3>
-            <p className="text-gray-600 mb-6">{cls.description}</p>
-            <div className="flex items-center gap-6 mb-6">
-              <div className="flex items-center">
-                <Clock className="h-5 w-5 text-purple-600 mr-2" />
-                <span className="text-sm text-gray-600">{cls.schedule.join(' | ')}</span>
-              </div>
-              <div className="flex items-center">
-                <Zap className="h-5 w-5 text-purple-600 mr-2" />
-                <span className="text-sm text-gray-600">{cls.intensity}</span>
-              </div>
-            </div>
-            <button className="w-full bg-purple-600 text-white py-3 rounded-full hover:bg-purple-700 transition">
-              Book Class
-            </button>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-
-  if (standalone) {
-    return (
-      <section className="py-12">
-        <Container>
-          <PageHeader 
-            title="Our Classes" 
-            subtitle="Discover your perfect movement practice"
-            className="mb-12"
-          />
-          {content}
-        </Container>
-      </section>
-    );
-  }
-
+export function Classes() {
   return (
-    <section id="classes" className="py-24 bg-white">
-      <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Classes</h2>
-          <p className="text-xl text-gray-600">Discover your perfect movement practice</p>
+    <div className="py-24 bg-white sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:text-center">
+          <h2 className="text-base font-semibold leading-7 text-primary-600">Expert Training</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Classes for Every Goal
+          </p>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            Whether you're just starting your fitness journey or looking to take it to the next level,
+            we have the perfect class for you.
+          </p>
         </div>
-        {content}
-      </Container>
-    </section>
-  );
+        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
+            {features.map((feature) => (
+              <div key={feature.name} className="flex flex-col">
+                <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                  <feature.icon
+                    className="h-5 w-5 flex-none text-primary-600"
+                    aria-hidden="true"
+                  />
+                  {feature.name}
+                </dt>
+                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                  <p className="flex-auto">{feature.description}</p>
+                  <p className="mt-6">
+                    <a
+                      href="#"
+                      className="text-sm font-semibold leading-6 text-primary-600"
+                    >
+                      Learn more <span aria-hidden="true">→</span>
+                    </a>
+                  </p>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  )
 }
